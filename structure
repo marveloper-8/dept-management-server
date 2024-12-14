@@ -1,0 +1,38 @@
+department-management-api/
+│
+├── src/
+│   ├── auth/
+│   │   ├── auth.module.ts
+│   │   ├── auth.service.ts
+│   │   ├── auth.resolver.ts
+│   │   ├── jwt.strategy.ts
+│   │   └── dto/login.dto.ts
+│   │
+│   ├── department/
+│   │   ├── department.module.ts
+│   │   ├── department.service.ts
+│   │   ├── department.resolver.ts
+│   │   ├── entities/
+│   │   │   ├── department.entity.ts
+│   │   │   └── sub-department.entity.ts
+│   │   └── dto/
+│   │       ├── create-department.dto.ts
+│   │       ├── update-department.dto.ts
+│   │       └── department-response.dto.ts
+│   │
+│   ├── users/
+│   │   ├── users.module.ts
+│   │   ├── users.service.ts
+│   │   └── entities/user.entity.ts
+│   │
+│   ├── app.module.ts
+│   └── main.ts
+│
+├── test/
+├── .env
+├── .gitignore
+├── nest-cli.json
+├── package.json
+├── tsconfig.json
+├── README.md
+└── docker-compose.yml
