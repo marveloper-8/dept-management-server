@@ -24,7 +24,7 @@ services:
       - key: JWT_EXPIRATION
         value: 3600
       - key: PORT
-        value: 5000
+        value: 3000
       - key: SUPABASE_URL
         value: https://tyrsqsahhyfclmpltnak.supabase.co
       - key: SUPABASE_KEY
