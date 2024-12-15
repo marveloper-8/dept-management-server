@@ -3,6 +3,7 @@ import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
+  console.log(`This is the env ${process.env.SUPABASE_URL}`)
   const app = await NestFactory.create(AppModule);
 
   app.useGlobalPipes(new ValidationPipe({
