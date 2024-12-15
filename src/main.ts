@@ -17,8 +17,7 @@ async function bootstrap() {
       'https://studio.graphql.com'
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true
+    allowedHeaders: ['Content-Type', 'Authorization']
   })
 
   const port = process.env.PORT || 5000

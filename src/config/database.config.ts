@@ -8,4 +8,7 @@ export default registerAs('database', () => ({
   username: process.env.DB_USER,
   password: process.env.DATABASE_PASSWORD,
   database: process.env.DB_NAME,
+  autoLoadEntities: true,
+  synchronize: process.env.NODE_ENV !== 'production', // Be cautious with this in production
+  logging: process.env.NODE_ENV !== 'production',
 }));

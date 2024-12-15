@@ -1,43 +1,30 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { AuthModule } from './auth/auth.module';
 import { DepartmentModule } from './department/department.module';
 import { UsersModule } from './users/users.module';
-import databaseConfig from './config/database.config';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-      load: [databaseConfig]
-    }),
-    TypeOrmModule.forRootAsync({
-      imports: [ConfigModule],
-      useFactory: (configService: ConfigService) => ({
-        type: 'postgres',
-        url: configService.get('database.url') || process.env.DATABASE_URL,
-        host: configService.get('database.host'),
-        port: configService.get('database.port'),
-        username: configService.get('database.username'),
-        password: configService.get('database.password'),
-        database: configService.get('database.database'),
-        ssl: {
-          rejectUnauthorized: false, // Be cautious with this in production
-        },
-        autoLoadEntities: true,
-        synchronize: process.env.NODE_ENV !== 'production', // Disable in production
-        logging: process.env.NODE_ENV !== 'production',
-      }),
-      inject: [ConfigService],
+    ConfigModule.forRoot({isGlobal: true}),
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      url: process.env.DATABASE_URL,
+      ssl: {
+        rejectUnauthorized: false,
+      },
+      autoLoadEntities: true,
+      synchronize: true,
+      logging: true,
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: 'schema.gql',
-      playground: process.env.NODE_ENV !== 'production',
-      introspection: process.env.NODE_ENV !== 'production',
+      playground: true,
+      introspection: true,
       context: ({req}) => ({req})
     }),
     AuthModule,

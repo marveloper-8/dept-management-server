@@ -25,3 +25,7 @@ services:
         value: 3600
       - key: PORT
         value: 5000
+      - key: SUPABASE_URL
+        value: https://tyrsqsahhyfclmpltnak.supabase.co
+      - key: SUPABASE_KEY
+        value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR5cnNxc2FoaHlmY2xtcGx0bmFrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQxMDA0OTYsImV4cCI6MjA0OTY3NjQ5Nn0.Fo6K2BN7uvOlUHR0YdlKl4D3j-7Jrn1BWtba0zmlehw
