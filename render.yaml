@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: dept-management-server
+    env: node
+    region: ohio
+    branch: main
+    buildCommand: npm install && npm run build
+    startCommand: npm run start:prod
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        value: postgresql://postgres:CtRbY74LRCab26Jp@db.tyrsqsahhyfclmpltnak.supabase.co:5432/postgres
+      - key: DB_HOST
+        value: db.tyrsqsahhyfclmpltnak.supabase.co
+      - key: DB_PORT
+        value: 5432
+      - key: DB_USER
+        value: postgres
+      - key: DB_NAME
+        value: postgres
+      - key: JWT_SECRET
+        value: lkFJ9J8FIOJ9mow987u2f
+      - key: JWT_EXPIRATION
+        value: 3600
+      - key: PORT
+        value: 5000

@@ -17,8 +17,11 @@ export class DepartmentResolver {
 
     @Query(() => [Department])
     @UseGuards(JwtAuthGuard)
-    async getDepartments() {
-        return this.departmentService.getDepartments()
+    async getDepartments(
+        @Args('limit', {type: () => Int, nullable: true}) limit?: number,
+        @Args('offset', {type: () => Int, nullable: true}) offset?: number
+    ) {
+        return this.departmentService.getDepartments(limit, offset)
     }
 
     @Mutation(() => Department)

@@ -21,8 +21,12 @@ export class DepartmentService {
         return this.departmentRepository.save(department)
     }
 
-    async getDepartments(): Promise<Department[]> {
-        return this.departmentRepository.find()
+    async getDepartments(limit: number, offset: number): Promise<Department[]> {
+        return this.departmentRepository.find({
+            take: limit,
+            skip: offset,
+            relations: ['subDepartments']
+        })
     }
 
     async updateDepartment(id: number, name: string): Promise<Department> {
