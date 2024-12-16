@@ -16,7 +16,8 @@ async function bootstrap() {
     app.enableCors({
       origin: [
         'http://localhost:3000',
-        'https://studio.graphql.com'
+        'https://studio.graphql.com',
+        'https://dmc-one.vercel.app'
       ],
       methods: ['GET', 'POST', 'PUT', 'DELETE'],
       allowedHeaders: ['Content-Type', 'Authorization']
