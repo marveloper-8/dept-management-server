@@ -10,22 +10,42 @@ services:
       - key: NODE_ENV
         value: production
       - key: DATABASE_URL
-        value: postgresql://postgres:CtRbY74LRCab26Jp@db.tyrsqsahhyfclmpltnak.supabase.co:5432/postgres
+        fromService:
+          name: dept-management-server
+          key: DATABASE_URL
       - key: DATABASE_HOST
-        value: db.tyrsqsahhyfclmpltnak.supabase.co
+        fromService:
+          name: dept-management-server
+          key: DATABASE_HOST
       - key: DATABASE_PORT
-        value: 5432
+        fromService:
+          name: dept-management-server
+          key: DATABASE_PORT
       - key: DATABASE_USER
-        value: postgres
+        fromService:
+          name: dept-management-server
+          key: DATABASE_USER
       - key: DATABASE_NAME
-        value: postgres
+        fromService:
+          name: dept-management-server
+          key: DATABASE_NAME
       - key: JWT_SECRET
-        value: lkFJ9J8FIOJ9mow987u2f
+        fromService:
+          name: dept-management-server
+          key: JWT_SECRET
       - key: JWT_EXPIRATION
-        value: 3600
+        fromService:
+          name: dept-management-server
+          key: JWT_EXPIRATION
       - key: PORT
-        value: 3000
+        fromService:
+          name: dept-management-server
+          key: PORT
       - key: SUPABASE_URL
-        value: https://tyrsqsahhyfclmpltnak.supabase.co
+        fromService:
+          name: dept-management-server
+          key: SUPABASE_URL
       - key: SUPABASE_KEY
-        value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR5cnNxc2FoaHlmY2xtcGx0bmFrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQxMDA0OTYsImV4cCI6MjA0OTY3NjQ5Nn0.Fo6K2BN7uvOlUHR0YdlKl4D3j-7Jrn1BWtba0zmlehw
+        fromService:
+          name: dept-management-server
+          key: SUPABASE_KEY
