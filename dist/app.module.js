@@ -26,10 +26,10 @@ exports.AppModule = AppModule = __decorate([
             typeorm_1.TypeOrmModule.forRoot({
                 type: 'postgres',
                 host: process.env.DATABASE_HOST,
-                port: parseInt(process.env.DATABASE_PORT, 10),
-                username: process.env.DATABASE_USER,
+                port: parseInt(process.env.DB_PORT, 10),
+                username: process.env.DB_USER,
                 password: process.env.DATABASE_PASSWORD,
-                database: process.env.DATABASE_NAME,
+                database: process.env.DB_NAME,
                 autoLoadEntities: true,
                 synchronize: true,
                 logging: true,
