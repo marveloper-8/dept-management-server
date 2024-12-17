@@ -1,4 +1,5 @@
 # Department Management API
+## NOTE: You can only login with username: "testuser", password: "password123"
 
 ## Project Overview
 A robust backend API for managing departments and sub-departments, built with NestJS, GraphQL, TypeORM, and PostgreSQL. The application supports user authentication, department creation, and hierarchical department management.
